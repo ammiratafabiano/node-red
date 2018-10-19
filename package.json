@@ -49,6 +49,7 @@
         "fs.notify": "0.0.4",
         "googleService": "1.0.0",
         "hash-sum": "1.0.2",
+        "html-table-to-json": "^0.2.1",
         "httpService": "1.0.0",
         "i18next": "1.10.6",
         "is-utf8": "0.2.1",

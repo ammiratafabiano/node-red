@@ -16,7 +16,7 @@
 
 // The `https` setting requires the `fs` module. Uncomment the following
 // to make it available:
-//var fs = require("fs");
+var fs = require("fs");
 
 module.exports = {
     // the tcp port that the Node-RED web server is listening on
@@ -114,14 +114,19 @@ module.exports = {
     // -----------------
     // To password protect the Node-RED editor and admin API, the following
     // property can be used. See http://nodered.org/docs/security.html for details.
-    //adminAuth: {
-    //    type: "credentials",
-    //    users: [{
-    //        username: "admin",
-    //        password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
-    //        permissions: "*"
-    //    }]
-    //},
+    adminAuth: {
+		type: "credentials",
+		users: [
+			{
+				username: "fabiam93",
+				password: "$2a$08$P5KKJKsmUZR2jyic3qNJJeAHO4QSa26eHe7aOh/i863.VU/QI6POa",
+				permissions: "*"
+			}
+		],
+		default: {
+			permissions: "read"
+		}
+    },
 
     // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
     // the static content (httpStatic), the following properties can be used.
@@ -136,14 +141,14 @@ module.exports = {
     // See the comment at the top of this file on how to load the `fs` module used by
     // this setting.
     //
-    //https: {
-    //    key: fs.readFileSync('privatekey.pem'),
-    //    cert: fs.readFileSync('certificate.pem')
-    //},
+    https: {
+       key: fs.readFileSync('nodecerts/node-key.pem'),
+       cert: fs.readFileSync('nodecerts/node-cert.pem')
+    },
 
     // The following property can be used to cause insecure HTTP connections to
     // be redirected to HTTPS.
-    //requireHttps: true
+    requireHttps: true,
 
     // The following property can be used to disable the editor. The admin API
     // is not affected by this option. To disable both the editor and the admin
